@@ -15,6 +15,7 @@ jobs:
     
   build:
 
+    name: Runs on Ubuntu latest
     runs-on: ubuntu-latest
 
     steps:
