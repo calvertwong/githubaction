@@ -5,12 +5,7 @@ on:
     branches:
       - '*'
   watch:
-    types: [started]
-
-defaults:
-  run:
-    shell: bash
-    working-directory: android  
+    types: [started]  
     
 jobs:
     
@@ -18,6 +13,9 @@ jobs:
 
     name: Runs on Ubuntu latest
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: android
 
     steps:
         
