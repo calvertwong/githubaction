@@ -19,8 +19,8 @@ jobs:
 
     steps:
         
-      - name: Set env variables
-        run: echo '::set-env name=HAS_DEBUG_ARTIFACT::false' && echo '::set-env name=HAS_RELEASE_ARTIFACT::false'
+#       - name: Set env variables
+#         run: echo '::set-env name=HAS_DEBUG_ARTIFACT::false' && echo '::set-env name=HAS_RELEASE_ARTIFACT::false'
         
       - name: Checking out repository      
         uses: actions/checkout@v2
