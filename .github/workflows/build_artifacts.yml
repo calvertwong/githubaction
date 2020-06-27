@@ -9,7 +9,8 @@ on:
 
 defaults:
   run:
-    working-directory: ./android  
+    working-directory: android  
+    
 jobs:
     
   build:
