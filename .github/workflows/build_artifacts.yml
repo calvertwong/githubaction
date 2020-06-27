@@ -50,5 +50,3 @@ jobs:
           
       - name: Set HAS_DEBUG_ARTIFACT to true
         run: echo '::set-env name=HAS_DEBUG_ARTIFACT::true'
-
-          
