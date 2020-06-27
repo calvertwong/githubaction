@@ -13,14 +13,11 @@ jobs:
 
     name: Runs on Ubuntu latest
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: android
 
     steps:
         
-#       - name: Set env variables
-#         run: echo '::set-env name=HAS_DEBUG_ARTIFACT::false' && echo '::set-env name=HAS_RELEASE_ARTIFACT::false'
+      - name: Set env variables
+        run: echo '::set-env name=HAS_DEBUG_ARTIFACT::false' && echo '::set-env name=HAS_RELEASE_ARTIFACT::false'
         
       - name: Checking out repository      
         uses: actions/checkout@v2
@@ -31,15 +28,18 @@ jobs:
           java-version: 1.8
           
       - name: Make gradlew executable
+        working-directory: android
         run: chmod +x gradlew
 
       - name: Run test
         if: ${{success()}}
+        working-directory: android
         run: ./gradlew test
 
       # Debug APK
 
       - name: Build Debug APK
+        working-directory: android
         run: ./gradlew assembleDebug
         
       - name: Get Debug APK
