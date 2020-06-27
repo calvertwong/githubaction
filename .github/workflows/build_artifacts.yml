@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Change directory
-        working-directory: ./android
         
       - name: Set env variables
         run: echo '::set-env name=HAS_DEBUG_ARTIFACT::false' && echo '::set-env name=HAS_RELEASE_ARTIFACT::false'
@@ -27,6 +25,9 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+          
+      - name: Change directory
+        working-directory: ./android
           
       - name: Run test
         run: ./gradlew test
