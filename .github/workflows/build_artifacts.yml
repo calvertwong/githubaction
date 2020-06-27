@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Change directory
-        run: cd android
+        run: bash cd android
         
       - name: Set env variables
         run: echo '::set-env name=HAS_DEBUG_ARTIFACT::false' && echo '::set-env name=HAS_RELEASE_ARTIFACT::false'
