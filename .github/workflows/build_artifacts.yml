@@ -50,3 +50,16 @@ jobs:
           
       - name: Set HAS_DEBUG_ARTIFACT to true
         run: echo '::set-env name=HAS_DEBUG_ARTIFACT::true'
+
+      - name: Send email indicate success
+        if: ${{success()}}
+        uses: dawidd6/action-send-mail@v2
+        with:
+          server_address: smtp.office365.com
+          server_port: 587
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Github Actions job result
+          body: "Build job of ${{github.repository}} completed.\n\nGenerated Debug artifact----------${{env.HAS_DEBUG_ARTIFACT}}\n\nGenerated Release artifact----------${{env.HAS_RELEASE_ARTIFACT}}\n\nBuild triggered by <b>${{github.actor}}</b>"
+          to: ${{secrets.MAIL_USERNAME}}
+          from: ${{secrets.MAIL_USERNAME}}
